@@ -1,0 +1,22 @@
+{
+    "name": "axel/new-temp-project",
+    "autoload": {
+        "psr-4": {
+            "Axel\\NewTempProject\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Axel",
+            "email": "axel19911@gmail.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "^4.13",
+        "httpsoft/http-server-request": "*",
+        "nyholm/psr7": "*",
+        "nyholm/psr7-server": "*",
+        "guzzlehttp/psr7": "*",
+        "laminas/laminas-diactoros": "*"
+    }
+}
