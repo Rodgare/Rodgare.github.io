@@ -1,0 +1,25 @@
+{
+    "name": "axel/ph-pproject",
+    "description": "Its my project for a exersices",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Axel\\PhPproject\\": "src/"
+        },
+        "files": [
+            "vardump.php",
+            "src/index.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Axel",
+            "email": "axel19911@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "funct/funct": "^1.5",
+        "lstrojny/functional-php": "^1.17"
+    }
+}
