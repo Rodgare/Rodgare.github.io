@@ -20,6 +20,7 @@
     "minimum-stability": "stable",
     "require": {
         "funct/funct": "^1.5",
-        "lstrojny/functional-php": "^1.17"
+        "lstrojny/functional-php": "^1.17",
+        "webmozart/assert": "^1.11"
     }
 }
