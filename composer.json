@@ -5,11 +5,7 @@
     "autoload": {
         "psr-4": {
             "Axel\\PhPproject\\": "src/"
-        },
-        "files": [
-            "vardump.php",
-            "src/index.php"
-        ]
+        }
     },
     "authors": [
         {
@@ -18,9 +14,22 @@
         }
     ],
     "minimum-stability": "stable",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/hexlet-components/php-immutable-fs-trees"
+        }
+    ],
     "require": {
         "funct/funct": "^1.5",
         "lstrojny/functional-php": "^1.17",
-        "webmozart/assert": "^1.11"
+        "webmozart/assert": "^1.11",
+        "hexlet/trees": "dev-main",
+        "php-ds/php-ds": "^1.5",
+        "illuminate/support": "^11.15",
+        "nesbot/carbon": "^3.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11"
     }
 }
