@@ -1,8 +1,16 @@
 <?php
 
 namespace App\Index;
-?>
 
-<h1>hello, php!</h1>
-<?php
-echo "<h1>i am from PHP!</h1>";
+require __DIR__ . '/../vendor/autoload.php';
+
+use Slim\Factory\AppFactory;
+
+$app = AppFactory::create();
+$app->addErrorMiddleware(true, true, true);
+
+$app->get('/', function ($request, $response) {
+    $response->getBody()->write('Welcome to Slim!');
+    return $response;
+});
+$app->run();

@@ -27,7 +27,12 @@
         "hexlet/trees": "dev-main",
         "php-ds/php-ds": "^1.5",
         "illuminate/support": "^11.15",
-        "nesbot/carbon": "^3.6"
+        "nesbot/carbon": "^3.6",
+        "slim/slim": "^4.14",
+        "slim/psr7": "^1.7",
+        "slim/http": "^1.4",
+        "slim/php-view": "^3.3",
+        "php-di/php-di": "^7.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^11"
