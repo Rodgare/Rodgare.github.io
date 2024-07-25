@@ -13,13 +13,17 @@ $container->set('renderer', function () {
 });
 $app = AppFactory::createFromContainer($container);
 $app->addErrorMiddleware(true, true, true);
-$users = ['mike', 'mishel', 'adel', 'keks', 'kamila'];
 
-$app->get('/users', function ($request, $response, $args) use ($users) {
-    $term = $request->getQueryParam('term');
-    $filteredUsers = array_filter($users, fn ($user) => str_contains($user, $term));
-    $params = ['users' => $filteredUsers, 'term' => $term];
-    return $this->get('renderer')->render($response, '../templates/users/index.phtml', $params);
+$app->get('/users/new', function ($request, $response) {
+    return $this->get('renderer')->render($response, "../templates/users/users-new.phtml");
+});
+
+$app->post('/users', function ($request, $response) {
+    $user = $request->getParsedBodyParam('user');
+    $user['id'] = uniqid();
+    file_put_contents('user-data', json_encode($user));
+    $params = ['name' => $user['name'], 'email' => $user['email']];
+    return $this->get('renderer')->render($response, "../templates/users/users.phtml", $params);
 });
 
 $app->run();
