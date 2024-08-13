@@ -15,9 +15,12 @@
     <?php endif ?>
   <?php endforeach ?>
 <?php endif ?>
+<h3>Вхід</h3>
 <form action="/" method="post">
-  <label>Email ('user@email.com')
+  <label>Email:
     <input type="email" name="user[email]" value="<?= htmlspecialchars($user['email']) ?>">
   </label>
   <input type="submit" value="Вхід">
 </form>
+<hr>
+<a href="/users/new">Реєстрація</a>

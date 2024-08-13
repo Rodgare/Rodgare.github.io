@@ -49,7 +49,7 @@ $app->post('/', function ($req, $res) use ($router) {
 $app->get('/users', function ($req, $res) use ($router) {
     $users = $_SESSION['users'] ?? [];
     if ($_SESSION['login'] !== true) {
-        $this->get('flash')->addMessage('error', "Необхідна авторизація");
+        $this->get('flash')->addMessage('error', "Авторизутесь");
 
         return $res->withStatus(401)->withRedirect($router->urlFor('root'));
     }
@@ -62,11 +62,6 @@ $app->get('/users', function ($req, $res) use ($router) {
 })->setname('users');
 
 $app->get('/users/new', function ($req, $res) use ($router) {
-    if ($_SESSION['login'] !== true) {
-        $this->get('flash')->addMessage('error', "Необхідна авторизація");
-
-        return $res->withStatus(401)->withRedirect($router->urlFor('root'));
-    }
     $params = ['user' => ['name' => '', 'email' => '', 'id' => ''], 'errors' => []];
 
     return $this->get('renderer')->render($res, 'users/newUser.phtml', $params);
@@ -96,7 +91,7 @@ $app->post('/users', function ($req, $res) use ($router, $validator) {
 
 $app->get('/users/{id}', function ($req, $res, $args) use ($router) {
     if ($_SESSION['login'] !== true) {
-        $this->get('flash')->addMessage('error', "Необхідна авторизація");
+        $this->get('flash')->addMessage('error', "Авторизуйтесь");
 
         return $res->withStatus(401)->withRedirect($router->urlFor('root'));
     }
@@ -137,7 +132,7 @@ $app->patch('/users/{id}', function ($req, $res, $args) use ($router, $validator
 
 $app->get('/users/{id}/edit', function ($req, $res, $args) use ($router) {
     if ($_SESSION['login'] !== true) {
-        $this->get('flash')->addMessage('error', "Необхідна авторизація");
+        $this->get('flash')->addMessage('error', "Авторизуйтесь");
 
         return $res->withStatus(401)->withRedirect($router->urlFor('root'));
     }
