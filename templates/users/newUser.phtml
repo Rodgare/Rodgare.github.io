@@ -1,0 +1,10 @@
+<h3>Додати користувача</h3>
+<form action="/users" method="post">
+    <div><label>Ім'я: <input type="text" name="user[name]" value="<?= htmlspecialchars($user['name']) ?>"></label></div>
+    <p style="color: red;"><?= $errors['name'] ?></p>
+    <div><label>Email: <input type="email" name="user[email]" value="<?= htmlspecialchars($user['email']) ?>"></label></div>
+    <p style="color: red;"><?= $errors['email'] ?></p>
+    <br>
+    <input type="submit" value="Відправити">
+</form>
+<div><a href="/users">Назад</a></div>

@@ -1,1 +1,40 @@
-<h1><a href="/users/new">Go to /users/new</a></h1>
+<?php if (isset($flash)): ?>
+  <?php foreach ($flash as $key => $messages): ?>
+    <?php if ($key === 'success'): ?>
+      <?php foreach ($messages as $message): ?>
+        <div style="color:green;">
+          <h3><?= $message ?></h3>
+        </div>
+      <?php endforeach ?>
+    <?php else: ?>
+      <?php foreach ($messages as $message): ?>
+        <div style="color:red;">
+          <h3><?= $message ?></h3>
+        </div>
+      <?php endforeach ?>
+    <?php endif ?>
+  <?php endforeach ?>
+<?php endif ?>
+<form action="/users" method="get">
+  <input type="search" name="search" value="<?= htmlspecialchars($search) ?>">
+  <input type="submit" value="пошук">
+</form>
+<hr>
+<?php if (isset($users)): ?>
+  <?php foreach ($users as $user): ?>
+    <div>Ім'я: <?= htmlspecialchars($user['name']) ?></div>
+    <div>Email <?= htmlspecialchars($user['email']) ?></div>
+    <div>ID: <?= htmlspecialchars($user['id']) ?></div>
+    <div><a href="/users/<?= $user['id'] ?>">Перейти</a></div>
+    <a href="/users/<?= $user['id'] ?>/edit">Редагувати</a>
+    <form action="/users/<?= $user['id'] ?>" method="post">
+      <input type="hidden" name="_METHOD" value="DELETE">
+      <input type="submit" value="Видалити">
+    </form>
+    <hr>
+  <?php endforeach ?>
+<?php endif ?>
+<h3><a href="/users/new">Додати нового користувача</a></h3>
+<form action="/logout" method="post">
+  <input type="submit" value="Вийти">
+</form>

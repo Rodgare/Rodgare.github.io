@@ -1,10 +1,10 @@
 {
-    "name": "axel/ph-pproject",
+    "name": "axel/app",
     "description": "Its my project for a exersices",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Axel\\PhPproject\\": "src/"
+            "App\\": "src/"
         }
     },
     "authors": [
@@ -32,7 +32,9 @@
         "slim/psr7": "^1.7",
         "slim/http": "^1.4",
         "slim/php-view": "^3.3",
-        "php-di/php-di": "^7.0"
+        "php-di/php-di": "^7.0",
+        "larapack/dd": "^1.1",
+        "slim/flash": "^0.4.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^11"

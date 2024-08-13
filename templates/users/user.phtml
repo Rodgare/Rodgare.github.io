@@ -1,0 +1,29 @@
+<?php if (isset($flash)): ?>
+  <?php foreach ($flash as $key => $messages): ?>
+    <?php if ($key === 'success'): ?>
+      <?php foreach ($messages as $message): ?>
+        <div style="color:green;">
+          <h3><?= $message ?></h3>
+        </div>
+      <?php endforeach ?>
+    <?php else: ?>
+      <?php foreach ($messages as $message): ?>
+        <div style="color:red;">
+          <h3><?= $message ?></h3>
+        </div>
+      <?php endforeach ?>
+    <?php endif ?>
+  <?php endforeach ?>
+<?php endif ?>
+<?php foreach ($user as $i): ?>
+  <div>Ім'я: <?= htmlspecialchars($i['name']) ?></div>
+  <div>Email <?= htmlspecialchars($i['email']) ?></div>
+  <div>ID: <?= htmlspecialchars($i['id']) ?></div>
+  <a href="/users/<?= $i['id'] ?>/edit">Редагувати</a>
+  <form action="/users/<?= $i['id'] ?>" method="post">
+  <input type="hidden" name="_METHOD" value="DELETE">
+  <input type="submit" value="Видалити">
+</form>
+<?php endforeach ?>
+<br>
+<a href="/users">Назад</a>
