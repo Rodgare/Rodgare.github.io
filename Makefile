@@ -1,3 +1,5 @@
+install:
+	composer install;
 index:
 	php src/index.php;
 start:
